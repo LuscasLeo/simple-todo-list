@@ -2,7 +2,7 @@ import TodoService from "./todo.service";
 import TodoRepositoryMemory from "./todo.repository.memory";
 
 describe("Todo Tests", () => {
-  it("Should create a new todo", async () => {
+  it("Should create a new todo with predefined items", async () => {
     const todoRepository = new TodoRepositoryMemory();
 
     const todoService = new TodoService(todoRepository);
@@ -31,5 +31,21 @@ describe("Todo Tests", () => {
     expect(todoItem.items![0]).toHaveProperty("title");
     expect(todoItem.items![0].title).toBe("open door");
     expect(todoItem.items![0].checked).toBe(false);
+  });
+
+  it("Should create a new todo with empty items", async () => {
+    const todoRepository = new TodoRepositoryMemory();
+
+    const todoService = new TodoService(todoRepository);
+
+    const todoItem = await todoService.create({
+      title: "todoItem",
+    });
+    expect(todoItem).toHaveProperty("title");
+    expect(todoItem.title).toBe("todoItem");
+
+    expect(todoItem.items).not.toBeNull();
+
+    expect(todoItem.items).toHaveLength(0);
   });
 });
