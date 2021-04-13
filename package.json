@@ -1,0 +1,9 @@
+{
+  "name": "my-todo-list",
+  "version": "1.0.0",
+  "description": "Simple todo list",
+  "main": "src/index.ts",
+  "repository": "https://github.com/LuscasLeo/simple-todo-list.git",
+  "author": "LuscasLeo",
+  "license": "MIT"
+}
