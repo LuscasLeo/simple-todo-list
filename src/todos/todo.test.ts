@@ -41,6 +41,7 @@ describe("Todo Tests", () => {
     const todoItem = await todoService.create({
       title: "todoItem",
     });
+
     expect(todoItem).toHaveProperty("title");
     expect(todoItem.title).toBe("todoItem");
 
